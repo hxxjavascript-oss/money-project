@@ -1,0 +1,698 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        sans-serif;
+
+    background: #f5f6f8;
+    color: #222;
+}
+
+/* =========================
+   页面整体
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding: 24px 16px 90px;
+}
+
+/* =========================
+   顶部标题
+========================= */
+
+.header {
+    margin-bottom: 22px;
+}
+
+.header h1 {
+    margin: 0 0 6px;
+
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header p {
+    margin: 0;
+
+    color: #888;
+    font-size: 14px;
+}
+
+/* =========================
+   页面视图
+========================= */
+
+.page-view {
+    display: block;
+}
+
+.page-view.hidden {
+    display: none;
+}
+
+/* =========================
+   卡片
+========================= */
+
+.card {
+    background: #fff;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    margin-bottom: 14px;
+
+    box-shadow:
+        0 3px 16px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+    margin: 0 0 20px;
+
+    font-size: 20px;
+}
+
+/* =========================
+   首页：时间价值
+========================= */
+
+.value-card {
+    text-align: center;
+
+    padding: 32px 20px;
+}
+
+.value-card .small-title {
+    color: #888;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.value-card .hourly-value {
+    font-size: 44px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+.value-card .hourly-unit {
+    margin-top: 6px;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+/* =========================
+   首页：我想花钱
+========================= */
+
+.spend-entry {
+    position: relative;
+
+    padding: 22px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.spend-entry:active {
+    transform: scale(0.98);
+}
+
+.spend-entry-title {
+    font-size: 21px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.spend-entry-subtitle {
+    color: #888;
+
+    font-size: 14px;
+}
+
+.spend-entry-arrow {
+    position: absolute;
+
+    right: 22px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 24px;
+
+    color: #999;
+}
+
+/* =========================
+   首页：统计
+========================= */
+
+.stats-card {
+    padding: 18px 20px;
+}
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1px;
+
+    background: #eee;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.stat-item {
+    background: #fff;
+
+    padding: 14px 10px;
+
+    text-align: center;
+}
+
+.stat-label {
+    color: #999;
+
+    font-size: 12px;
+
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+/* =========================
+   设置入口
+========================= */
+
+.settings-entry {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    padding: 18px 20px;
+}
+
+.settings-entry-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.settings-icon {
+    font-size: 20px;
+}
+
+.settings-title {
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.settings-arrow {
+    color: #aaa;
+
+    font-size: 20px;
+}
+
+/* =========================
+   页面顶部返回
+========================= */
+
+.page-header {
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.back-btn {
+    border: 0;
+
+    background: transparent;
+
+    padding: 5px 10px 5px 0;
+
+    margin-right: 6px;
+
+    color: #555;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.page-title {
+    margin: 0;
+
+    font-size: 23px;
+
+    font-weight: 700;
+}
+
+/* =========================
+   表单
+========================= */
+
+.form-item {
+    margin-bottom: 20px;
+}
+
+.form-item > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    font-size: 15px;
+}
+
+.input-box {
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #ddd;
+
+    border-radius: 11px;
+
+    padding: 0 12px;
+
+    background: #fff;
+
+    transition: border-color 0.15s ease;
+}
+
+.input-box:focus-within {
+    border-color: #999;
+}
+
+.input-box input {
+    flex: 1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    border: 0;
+
+    outline: none;
+
+    padding: 13px 4px;
+
+    font-size: 16px;
+
+    background: transparent;
+}
+
+.input-box span {
+    color: #888;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   单选按钮
+========================= */
+
+.radio-group {
+    display: flex;
+
+    gap: 24px;
+
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+/* =========================
+   快捷按钮
+========================= */
+
+.quick-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.quick-buttons button {
+    padding: 7px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.quick-buttons button:active {
+    background: #f2f2f2;
+}
+
+/* =========================
+   主按钮
+========================= */
+
+.primary-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 11px;
+
+    background: #222;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.1s ease;
+}
+
+.primary-btn:active {
+    transform: scale(0.99);
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+/* =========================
+   返回按钮
+========================= */
+
+.secondary-btn {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    background: #fff;
+
+    color: #555;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+/* =========================
+   提示
+========================= */
+
+.error {
+    margin-top: 5px;
+
+    color: #d93025;
+
+    font-size: 13px;
+}
+
+.notice {
+    display: none;
+
+    margin-bottom: 15px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.notice.show {
+    display: block;
+}
+
+.notice.error {
+    background: #fff0f0;
+}
+
+.notice.success {
+    background: #f0fff4;
+}
+
+/* =========================
+   计算结果
+========================= */
+
+.result-card {
+    text-align: center;
+}
+
+.result-main {
+    padding: 10px 0 25px;
+}
+
+.result-label {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+.result-money {
+    font-size: 38px;
+
+    font-weight: 700;
+}
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.result-item {
+    padding: 16px 10px;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+}
+
+.result-value {
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+.time-message {
+    padding: 20px;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+
+    line-height: 1.8;
+}
+
+.time-message p {
+    margin: 5px 0;
+}
+
+.calculation-note {
+    margin-top: 18px;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.help-text {
+    margin: 8px 0 0;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+/* =========================
+   消费页面
+========================= */
+
+.spend-intro {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: -8px 0 20px;
+}
+
+.price-result-main {
+    padding: 8px 0 22px;
+}
+
+.price-result-label {
+    color: #888;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.price-result-money {
+    font-size: 38px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+.price-result-subtitle {
+    color: #777;
+
+    font-size: 14px;
+}
+
+/* =========================
+   底部小提示
+========================= */
+
+.page-footer {
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    padding: 10px 0 20px;
+}
+
+/* =========================
+   隐藏
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   手机端
+========================= */
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 18px 12px 70px;
+    }
+
+    .header {
+        margin-bottom: 18px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .card {
+        padding: 18px;
+
+        border-radius: 16px;
+
+        margin-bottom: 12px;
+    }
+
+    .value-card {
+        padding: 28px 16px;
+    }
+
+    .value-card .hourly-value {
+        font-size: 40px;
+    }
+
+    .spend-entry-title {
+        font-size: 19px;
+    }
+
+    .result-money {
+        font-size: 32px;
+    }
+
+    .price-result-money {
+        font-size: 34px;
+    }
+
+    .result-value {
+        font-size: 20px;
+    }
+}

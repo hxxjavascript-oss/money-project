@@ -1,0 +1,297 @@
+@charset "utf-8";
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Microsoft YaHei",
+        sans-serif;
+
+    background: #f5f6f8;
+    color: #222;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    padding: 30px 16px 60px;
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+
+    font-size: 30px;
+}
+
+.header p {
+    margin: 0;
+
+    color: #777;
+}
+
+.card {
+    background: #fff;
+
+    border-radius: 16px;
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    font-size: 21px;
+}
+
+.form-item {
+    margin-bottom: 22px;
+}
+
+.form-item > label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+}
+
+.input-box {
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    padding: 0 12px;
+
+    background: #fff;
+}
+
+.input-box input {
+    flex: 1;
+
+    width: 100%;
+
+    border: 0;
+    outline: none;
+
+    padding: 13px 4px;
+
+    font-size: 16px;
+}
+
+.input-box span {
+    color: #888;
+
+    white-space: nowrap;
+}
+
+.radio-group {
+    display: flex;
+
+    gap: 24px;
+}
+
+.radio-label {
+    cursor: pointer;
+}
+
+.quick-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.quick-buttons button {
+    padding: 7px 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    cursor: pointer;
+}
+
+.primary-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background: #222;
+
+    color: #fff;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.primary-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+.error {
+    margin-top: 5px;
+
+    color: #d93025;
+
+    font-size: 13px;
+}
+
+.notice {
+    display: none;
+
+    margin-bottom: 15px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+}
+
+.notice.show {
+    display: block;
+}
+
+.notice.error {
+    background: #fff0f0;
+}
+
+.notice.success {
+    background: #f0fff4;
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-main {
+    padding: 10px 0 25px;
+}
+
+.result-label {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+.result-money {
+    font-size: 38px;
+
+    font-weight: 700;
+}
+
+.result-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+.result-item {
+    padding: 18px;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+}
+
+.result-value {
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+.time-message {
+    padding: 20px;
+
+    background: #f7f7f7;
+
+    border-radius: 12px;
+
+    line-height: 1.8;
+}
+
+.time-message p {
+    margin: 5px 0;
+}
+
+.calculation-note {
+    margin-top: 18px;
+
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.help-text {
+    margin: 8px 0 0;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 20px 12px 40px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .result-money {
+        font-size: 32px;
+    }
+}

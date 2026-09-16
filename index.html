@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>消费真实价格</title>
+
+<link
+    rel="stylesheet"
+    href="./css/style.css"
+>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+
+<!-- =========================
+     首页
+========================== -->
+
+<div
+    id="homePage"
+    class="page-view"
+>
+
+    <div class="header">
+
+        <h1>消费真实价格</h1>
+
+        <p>
+            花钱之前，先看看它真正需要你付出多少时间
+        </p>
+
+    </div>
+
+
+    <!-- 时间价值 -->
+
+    <div class="card value-card">
+
+        <div class="small-title">
+            你的时间价值
+        </div>
+
+        <div
+            id="homeHourlyValue"
+            class="hourly-value"
+        >
+            ¥0.00
+        </div>
+
+        <div class="hourly-unit">
+            每小时
+        </div>
+
+    </div>
+
+
+    <!-- 我想花钱 -->
+
+    <div
+        id="goSpendPage"
+        class="card spend-entry"
+    >
+
+        <div class="spend-entry-title">
+            💰 我想花钱
+        </div>
+
+        <div class="spend-entry-subtitle">
+            把价格换算成你的工作时间
+        </div>
+
+        <div class="spend-entry-arrow">
+            →
+        </div>
+
+    </div>
+
+
+    <!-- 简单统计 -->
+
+    <div class="card stats-card">
+
+        <div class="stats-grid">
+
+            <div class="stat-item">
+
+                <div class="stat-label">
+                    本月消费
+                </div>
+
+                <div
+                    id="monthSpend"
+                    class="stat-value"
+                >
+                    ¥0
+                </div>
+
+            </div>
+
+
+            <div class="stat-item">
+
+                <div class="stat-label">
+                    避免消费
+                </div>
+
+                <div
+                    id="avoidedSpend"
+                    class="stat-value"
+                >
+                    ¥0
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- 设置 -->
+
+    <div
+        id="goSettingsPage"
+        class="card settings-entry"
+    >
+
+        <div class="settings-entry-left">
+
+            <div class="settings-icon">
+                ⚙
+            </div>
+
+            <div class="settings-title">
+                收入与工作设置
+            </div>
+
+        </div>
+
+        <div class="settings-arrow">
+            →
+        </div>
+
+    </div>
+
+
+    <div class="page-footer">
+        消费的真实价格，不只是钱
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     消费页面
+========================== -->
+
+<div
+    id="spendPage"
+    class="page-view hidden"
+>
+
+    <div class="page-header">
+
+        <button
+            id="backFromSpend"
+            class="back-btn"
+            type="button"
+        >
+            ← 返回
+        </button>
+
+        <h1 class="page-title">
+            我想花钱
+        </h1>
+
+    </div>
+
+
+    <div class="card">
+
+        <p class="spend-intro">
+            输入你准备购买的东西，
+            看看它真正需要你付出多少工作时间。
+        </p>
+
+
+        <div class="form-item">
+
+            <label>
+                我想买什么？
+            </label>
+
+            <input
+                id="itemName"
+                type="text"
+                placeholder="例如：一双鞋"
+            >
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                准备花多少钱？
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="itemPrice"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="例如 699"
+                >
+
+                <span>元</span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="priceNotice"
+            class="notice"
+        ></div>
+
+
+        <button
+            id="calculatePriceBtn"
+            class="primary-btn"
+            type="button"
+        >
+            看看它真正的价格
+        </button>
+
+    </div>
+
+
+    <!-- 消费结果 -->
+
+    <div
+        id="priceResultCard"
+        class="card result-card hidden"
+    >
+
+        <h2>
+            它的真实价格
+        </h2>
+
+
+        <div class="price-result-main">
+
+            <div class="price-result-label">
+                你准备支付
+            </div>
+
+            <div
+                id="itemPriceResult"
+                class="price-result-money"
+            >
+                ¥0.00
+            </div>
+
+            <div class="price-result-subtitle">
+                但你真正付出的，是时间
+            </div>
+
+        </div>
+
+
+        <div class="time-message">
+
+            <p>
+                这相当于
+            </p>
+
+            <p>
+
+                <strong
+                    id="workTimeResult"
+                    class="big-time"
+                >
+                    0小时0分钟
+                </strong>
+
+            </p>
+
+            <p>
+                的工作时间。
+            </p>
+
+            <p>
+                大约相当于
+                <strong id="workDaysResult">
+                    0
+                </strong>
+                个工作日。
+            </p>
+
+        </div>
+
+
+        <div class="time-message">
+
+            <p>
+                你的每小时价值约为
+            </p>
+
+            <p>
+
+                <strong id="hourlyValueResult">
+                    ¥0.00
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <div class="time-message">
+
+            <p>
+                <strong>
+                    你觉得值得吗？
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     设置页面
+========================== -->
+
+<div
+    id="settingsPage"
+    class="page-view hidden"
+>
+
+    <div class="page-header">
+
+        <button
+            id="backFromSettings"
+            class="back-btn"
+            type="button"
+        >
+            ← 返回
+        </button>
+
+        <h1 class="page-title">
+            收入与工作设置
+        </h1>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="form-item">
+
+            <label>
+                每月税前工资
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="monthlySalary"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="例如 5000"
+                >
+
+                <span>元/月</span>
+
+            </div>
+
+            <div
+                class="error"
+                id="monthlySalaryError"
+            ></div>
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                五险一金后实际到手工资
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="takeHomeSalary"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="例如 4200"
+                >
+
+                <span>元/月</span>
+
+            </div>
+
+            <div
+                class="error"
+                id="takeHomeSalaryError"
+            ></div>
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                公积金每月可以提取吗？
+            </label>
+
+            <div class="radio-group">
+
+                <label class="radio-label">
+
+                    <input
+                        type="radio"
+                        name="housingFund"
+                        value="1"
+                        checked
+                    >
+
+                    可以
+
+                </label>
+
+
+                <label class="radio-label">
+
+                    <input
+                        type="radio"
+                        name="housingFund"
+                        value="0"
+                    >
+
+                    不可以
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="form-item"
+            id="housingFundAmountBox"
+        >
+
+            <label>
+                每月可以提取多少公积金？
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="housingFundAmount"
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    placeholder="例如 500"
+                >
+
+                <span>元/月</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                每天工作多少小时？
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="workHours"
+                    type="number"
+                    min="0.1"
+                    max="24"
+                    step="0.1"
+                    value="8"
+                >
+
+                <span>小时/天</span>
+
+            </div>
+
+            <div
+                class="error"
+                id="workHoursError"
+            ></div>
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                每周工作几天？
+            </label>
+
+            <div class="input-box">
+
+                <input
+                    id="workDays"
+                    type="number"
+                    min="1"
+                    max="7"
+                    step="1"
+                    value="5"
+                >
+
+                <span>天/周</span>
+
+            </div>
+
+
+            <div class="quick-buttons">
+
+                <button
+                    type="button"
+                    data-days="5"
+                >
+                    双休
+                </button>
+
+                <button
+                    type="button"
+                    data-days="6"
+                >
+                    单休
+                </button>
+
+            </div>
+
+
+            <div
+                class="error"
+                id="workDaysError"
+            ></div>
+
+        </div>
+
+
+        <div class="form-item">
+
+            <label>
+                是否考虑法定节假日？
+            </label>
+
+            <div class="radio-group">
+
+                <label class="radio-label">
+
+                    <input
+                        type="radio"
+                        name="includeHolidays"
+                        value="1"
+                        checked
+                    >
+
+                    是
+
+                </label>
+
+
+                <label class="radio-label">
+
+                    <input
+                        type="radio"
+                        name="includeHolidays"
+                        value="0"
+                    >
+
+                    否
+
+                </label>
+
+            </div>
+
+
+            <p class="help-text">
+                第一阶段暂按平均工作日计算，
+                法定节假日精确计算后续再加入。
+            </p>
+
+        </div>
+
+
+        <div
+            id="notice"
+            class="notice"
+        ></div>
+
+
+        <button
+            id="calculateBtn"
+            class="primary-btn"
+            type="button"
+        >
+            保存并计算我的时间价值
+        </button>
+
+    </div>
+
+
+    <!-- 设置结果 -->
+
+    <div
+        id="resultCard"
+        class="card result-card hidden"
+    >
+
+        <h2>
+            你的时间价值
+        </h2>
+
+
+        <div class="result-main">
+
+            <div class="result-label">
+                每月实际可获得
+            </div>
+
+            <div
+                id="monthlyResult"
+                class="result-money"
+            >
+                ¥0.00
+            </div>
+
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-item">
+
+                <div class="result-label">
+                    平均每天
+                </div>
+
+                <div
+                    id="dailyResult"
+                    class="result-value"
+                >
+                    ¥0.00
+                </div>
+
+            </div>
+
+
+            <div class="result-item">
+
+                <div class="result-label">
+                    平均每小时
+                </div>
+
+                <div
+                    id="hourlyResult"
+                    class="result-value"
+                >
+                    ¥0.00
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="time-message">
+
+            <p>
+                也就是说：
+            </p>
+
+            <p>
+                你工作
+                <strong>1小时</strong>
+                ≈
+                <strong id="hourlyText">
+                    ¥0.00
+                </strong>
+            </p>
+
+            <p>
+                你工作
+                <strong>10分钟</strong>
+                ≈
+                <strong id="tenMinutesText">
+                    ¥0.00
+                </strong>
+            </p>
+
+            <p>
+                你工作
+                <strong>30分钟</strong>
+                ≈
+                <strong id="thirtyMinutesText">
+                    ¥0.00
+                </strong>
+            </p>
+
+        </div>
+
+
+        <p
+            id="workDaysText"
+            class="calculation-note"
+        ></p>
+
+    </div>
+
+</div>
+
+
+</div>
+
+<script src="./js/app.js"></script>
+
+</body>
+
+</html>
